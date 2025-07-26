@@ -63,7 +63,6 @@ export const useProductActions = () => {
       return updated;
     });
   };
-  console.log("gkfdmfd-312", favorites);
 
   return {
     favorites: favorites || [],

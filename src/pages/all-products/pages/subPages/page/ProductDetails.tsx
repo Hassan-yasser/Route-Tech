@@ -35,7 +35,7 @@ const ProductDetails = () => {
               Price: ${productDetails.price}
             </p>
             <button
-              className="btn"
+              className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
               onClick={() =>
                 isFavorite(productDetails.id)
                   ? removeFromFavorites(productDetails)
@@ -43,23 +43,13 @@ const ProductDetails = () => {
               }
             >
               {isFavorite(productDetails.id) ? (
-                <button
-                  onClick={() => removeFromFavorites(productDetails)}
-                  className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
-                >
-                  <FaHeart className="text-red-500" />
-                </button>
+                <FaHeart className="text-red-500" />
               ) : (
-                <button
-                  onClick={() => addToFavorites(productDetails)}
-                  className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
-                >
-                  <FaRegHeart />
-                </button>
+                <FaRegHeart />
               )}
             </button>
             <button
-              className="btn"
+              className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
               onClick={() =>
                 isInCart(productDetails.id)
                   ? removeFromCart(productDetails.id)
@@ -67,19 +57,9 @@ const ProductDetails = () => {
               }
             >
               {isInCart(productDetails.id) ? (
-                <button
-                  onClick={() => removeFromCart(productDetails.id)}
-                  className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
-                >
-                  <IoCartSharp className="text-green-600" />
-                </button>
+                <IoCartSharp className="text-green-600" />
               ) : (
-                <button
-                  onClick={() => addToCart(productDetails)}
-                  className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
-                >
-                  <IoCartOutline className="text-green-600" />
-                </button>
+                <IoCartOutline className="text-green-600" />
               )}
             </button>
           </div>

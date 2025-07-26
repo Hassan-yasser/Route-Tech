@@ -8,7 +8,7 @@ import ProductDetails from "../../pages/all-products/pages/subPages/page/Product
 const Routes = () => {
   return (
     <ReactRoutes>
-      <Route path="/products" element={<AllProducts />} />
+      <Route path="/" element={<AllProducts />} />
       <Route path="/products/:id/view/details" element={<ProductDetails />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/cart" element={<Cart />} />

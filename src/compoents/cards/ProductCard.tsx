@@ -64,7 +64,7 @@ const ProductCard = ({
         src={product.image}
         onClick={() => navigate(`/products/${product.id}/view/details`)}
         alt={product.title}
-        className="h-48 object-contain mb-4"
+        className="h-48 object-contain mb-4 cursor-pointer"
       />
       <h2 className="text-lg font-semibold line-clamp-2">{product.title}</h2>
       <p className="text-sm text-gray-500 mb-2 line-clamp-2">

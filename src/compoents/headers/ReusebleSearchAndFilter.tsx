@@ -15,12 +15,12 @@ const ReusebleSearchAndFilter = ({
   setSortPrice,
 }: HeaderProps) => {
   return (
-    <div className="flex items-center gap-3">
-      <div className="grow">
+    <div className="flex justify-between items-center md:gap-3 gap-4 ">
+      <div className="w-1/2 sm:w-full">
         {" "}
         <SearchInputs onChange={setSearch} value={search} />
       </div>
-      <div>
+      <div className=" w-1/2 ">
         <FilterProducts
           brands={brands}
           categories={categories}

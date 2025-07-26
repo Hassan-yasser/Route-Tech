@@ -33,16 +33,16 @@ const FilterProducts = ({
   };
 
   return (
-    <div className="relative inline-block ">
+    <div className="relative block w-full ">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 cursor-pointer py-2 border border-gray-300 rounded hover:bg-gray-100 transition"
+        className="flex items-center w-full gap-2 px-4 cursor-pointer py-2 border border-gray-300 rounded hover:bg-gray-100 transition"
       >
         <FaFilter />
         Filters
       </button>
       {isOpen && (
-        <div className="absolute z-10 mt-2 right-0 w-[300px] bg-white border border-gray-300 shadow-lg rounded-xl p-4 space-y-4">
+        <div className="absolute z-10 mt-2 right-0 w-[200px] sm:w-[300px] bg-white border border-gray-300 shadow-lg rounded-xl p-4 space-y-4">
           <div>
             <h3 className="font-bold mb-2">Sort by Price</h3>
             <select

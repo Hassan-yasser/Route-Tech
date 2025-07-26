@@ -1,6 +1,7 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { IoCartOutline, IoCartSharp } from "react-icons/io5";
 import type { ProductType } from "../../pages/all-products/types/ProductsTypes";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   product: ProductType;
@@ -22,6 +23,7 @@ const ProductCard = ({
   addToCart,
   removeFromCart,
 }: Props) => {
+  const navigate = useNavigate();
   return (
     <div className="relative group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all p-4 flex flex-col">
       <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -60,6 +62,7 @@ const ProductCard = ({
 
       <img
         src={product.image}
+        onClick={() => navigate(`/products/${product.id}/view/details`)}
         alt={product.title}
         className="h-48 object-contain mb-4"
       />

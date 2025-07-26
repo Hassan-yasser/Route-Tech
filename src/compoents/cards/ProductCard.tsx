@@ -1,32 +1,33 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { IoCartOutline, IoCartSharp } from "react-icons/io5";
 import type { ProductType } from "../../pages/all-products/types/ProductsTypes";
-import { useProductActions } from "../../lib/hooks/useProductActions/useProducActions";
 
 type Props = {
   product: ProductType;
+  isFavorite: boolean;
+
+  isInCart: boolean;
+  addToFavorites: (product: ProductType) => void;
+  removeFromFavorites: (product: ProductType) => void;
+  addToCart: (product: ProductType) => void;
+  removeFromCart: (id: number) => void;
 };
 
-const ProductCard = ({ product }: Props) => {
-  const {
-    isFavorite,
-    isInCart,
-    addToFavorites,
-    removeFromFavorites,
-    addToCart,
-    removeFromCart,
-  } = useProductActions();
-
-  const favorite = isFavorite(product.id);
-  const inCart = isInCart(product.id);
-
+const ProductCard = ({
+  product,
+  isFavorite,
+  isInCart,
+  addToFavorites,
+  removeFromFavorites,
+  addToCart,
+  removeFromCart,
+}: Props) => {
   return (
     <div className="relative group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all p-4 flex flex-col">
-      {/* Hover Action Buttons */}
       <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        {favorite ? (
+        {isFavorite ? (
           <button
-            onClick={() => removeFromFavorites(product.id)}
+            onClick={() => removeFromFavorites(product)}
             className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
           >
             <FaHeart className="text-red-500" />
@@ -40,7 +41,7 @@ const ProductCard = ({ product }: Props) => {
           </button>
         )}
 
-        {inCart ? (
+        {isInCart ? (
           <button
             onClick={() => removeFromCart(product.id)}
             className="cursor-pointer bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"

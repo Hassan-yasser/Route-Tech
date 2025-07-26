@@ -1,16 +1,6 @@
 import { useState } from "react";
 import { FaFilter } from "react-icons/fa";
-
-type Props = {
-  brands: string[];
-  categories: string[];
-  selectedBrands: string[];
-  setSelectedBrands: (val: string[]) => void;
-  selectedCategories: string[];
-  setSelectedCategories: (val: string[]) => void;
-  sortPrice: "" | "asc" | "desc";
-  setSortPrice: (val: "" | "asc" | "desc") => void;
-};
+import type { FilterProps } from "../headers/headers-types/HeadersTypes";
 
 const FilterProducts = ({
   brands,
@@ -21,7 +11,7 @@ const FilterProducts = ({
   setSelectedCategories,
   sortPrice,
   setSortPrice,
-}: Props) => {
+}: FilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCheckbox = (
@@ -108,7 +98,7 @@ const FilterProducts = ({
           <div className="text-right pt-2">
             <button
               onClick={handleClearFilters}
-              className="text-red-600 text-sm hover:underline"
+              className="text-red-600 text-sm hover:underline cursor-pointer"
             >
               Clear Filters
             </button>

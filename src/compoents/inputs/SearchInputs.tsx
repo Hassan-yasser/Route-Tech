@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
 import { IoClose, IoSearch } from "react-icons/io5";
 import { useDebounce } from "../../lib/hooks/useDebounce/useDebounce";
-
-type Props = {
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  className?: string;
-};
+import type { SearchProps } from "../headers/headers-types/HeadersTypes";
 
 const SearchInputs = ({
   value,
   onChange,
   placeholder = "Search...",
   className = "",
-}: Props) => {
+}: SearchProps) => {
   const [inputValue, setInputValue] = useState(value);
 
   const debouncedValue = useDebounce(inputValue, 400);
